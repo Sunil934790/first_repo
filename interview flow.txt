@@ -1,0 +1,95 @@
+overview of AIA	
+pods
+audit the services
+aia audit monitoring testing
+checking logs for an service 
+bit bucket
+audit .
+ flow
+workspaces
+yaml file and its properties
+pushing code form one env to another
+deployment process
+created sp with signature for select adapter service and wrappers
+checklist-- to know
+
+
+
+web methods
+	Flow steps
+	Adapters
+	adapter notification
+	web methods messaging triggers
+	flat file
+	transactions 
+	jdbc connections
+	conversions -- see logic 
+	pub sub
+	scheduler 
+	file polling
+UM
+	pub sub
+	jms trigger
+apache kafka
+	producer
+	consumer
+	broker
+	zookeeper
+	kafka poc
+	confluent cloud
+	schema registrey
+camel k
+	components
+	poc done
+	kaoto
+api gateway
+	cloud to cloud
+		webmethods.io		--> create services
+		api gateway  		--> create apis
+		developer portal 	--> publishing to this portal
+		gone through with diff policy conditions
+	local to cloud
+		we use ngrok for integrate between local to our api gateway
+		designer 			--> services
+		make sure ngrok is up and running
+		create api and check its running with postman
+		
+Certifications
+	wM Integration On-Prem Basic_Course completion certificate
+	wM B2B SaaS Basic_Course completion certificate
+	apache-kafka-fundamentals-and-accreditation certificate
+	API management basi api gateway certification
+	AWS cloud practitioner
+	
+		
+		
+
+
+			
+			
+			
+Hi, my name is Sunil Kumar
+I am currently working as a Junior Software Engineer at Vkraft Software Services.
+
+I have hands-on experience in webMethods, including developing flow steps, creating adapters, setting up JDBC connections, and working with messaging triggers, pub-sub models, transactions, and file polling. 
+I have also worked extensively on data format conversions involving XML, JSON, flat files, and databases.
+
+Additionally, I have experience with Apache Kafka, handling producers, consumers, brokers, and schema registries, and I have worked with Apache Camel K, utilizing different components and Kaoto for integrations.
+
+I have worked on API Gateway for cloud-to-cloud and local-to-cloud integrations using ngrok, AIA for audit monitoring, Bitbucket, YAML configurations, and deployment processes.
+
+Apart from backend development, I have full-stack experience in HTML, CSS, and JavaScript, where I built a Purchase Policy PoC with vehicle, life, and travel insurance fields. 
+This involved adapter services, validations using regex, and generating policy numbers based on input conditions.
+
+Additionally, I am AWS Certified (Cloud Practitioner) and have completed an Applied Data Science certification on Coursera.
+
+I am always eager to explore new technologies and improve my skills in cloud computing, integrations, and software development.
+
+
+
+
+
+
+
+10.216.136.9/10-9555 uat
+

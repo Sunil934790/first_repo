@@ -1,0 +1,119 @@
+APACHE KAFKA is an open-source event streaming platform, and CONFLUENT is a commercial company that offers a version of Kafka with additional tools and services. 
+	Both are used to build real-time applications that process and store data streams. 
+		APACHE KAFKA
+			An open-source platform for processing and storing streaming data
+			Used to build real-time data pipelines and applications
+			Can handle large volumes of data in real time
+		CONFLUENT
+			A commercial company that offers a version of Kafka with additional tools and services 
+			Offers enterprise-level features like multi-datacenter replication and role-based access control 
+			
+			Makes it easier to deploy and manage Kafka clusters in large-scale production environments 
+			Helps prevent data corruption and enables smooth schema evolution 
+
+Confluent Cloud is a fully managed data streaming platform that uses Apache Kafka and Apache Flink. It allows users to process and integrate data in real time
+
+A "Confluent Cloud cluster" refers to a group of servers managed by the Confluent Cloud platform, which is a fully managed service based on Apache Kafka,
+	allowing users to easily deploy and scale real-time data streaming pipelines without managing the underlying infrastructure
+
+In Kafka message is a key value pair
+
+
+
+In Apache Kafka, SERIALIZATION and DESERIALIZATION (SerDes) is the process of converting data into bytes and back again. 
+This allows data to be stored, transferred, and reconstructed. 
+		How it works 
+				1. Serialization
+					When an application writes data to a Kafka topic, it uses a serializer to convert the data into bytes.
+				2. Deserialization
+					When an application reads data from a Kafka topic, it uses a de serializer to convert the bytes back into data.
+					
+confluent cloud --> signup
+
+
+Topic Creation
+Cluster (Brokers Setup)
+Topic → Partitions Distributed to Brokers
+Producer Sends Messages to the Topic
+Consumer Group Subscribes to the Topic
+Consumers Read Messages from Assigned Partitions
+
+
+
+
+
+
+for synchronous --> reply and request document will create while creating adapter notification referencing to listener1
+
+publish(WebMethods) --> kafka-topic --> listener1 --> notification1 --> consumer1
+this is for synchronous--> after publsihing message listener after listening directly taking action(invoking that consumer1 service)
+
+for Asynchronous --> publish document will create while creating adapter notification referencing to listener2
+ 
+publish(WebMethods) --> kafka-topic2 --> listener2 --> notification2 --> publishable --> wmTrigger/jmsTrigger --> consumer2
+this is fir asynchronous --> after publsihing msg it doesnot wait for response
+
+getTransportInfo --> for getting current ip address
+	http>ipInfo>localIp
+	
+	
+	
+
+https://github.com/Danish2511/documentation/blob/main/Kafka/2-Installation-Guide.md
+
+C:\kafka\bin\windows\zookeeper-server-start.bat C:\kafka\config\zookeeper.properties
+C:\kafka\bin\windows\kafka-server-start.bat C:\kafka\config\server.properties
+C:\kafka\bin\windows\kafka-topics.bat --create --topic test-topic --bootstrap-server localhost:9092 --partitions 1 --replication-factor 1
+C:\kafka\bin\windows\kafka-topics.bat --list --bootstrap-server localhost:9092
+C:\kafka\bin\windows\kafka-console-producer.bat --topic test-topic --bootstrap-server localhost:9092
+C:\kafka\bin\windows\kafka-console-consumer.bat --topic test-topic --from-beginning --bootstrap-server localhost:9092
+
+kafka UI
+
+create one yaml file and place in kafka folder and jar file also
+cd C:\kafka
+java -jar kafka-ui.jar --spring.config.location=app.yaml
+http://localhost:8082
+
+after done stop zookeeper and kafka ui
+
+
+
+
+                Uber Ride Booking System (Kafka Flow)
+
+   1️⃣ Ride Service (Producer) -> Publishes ride request to Kafka
+      ---------------------
+      |  Ride Service  |
+      ---------------------
+             |
+             v
+      ---------------------
+      | Kafka Topic: ride-requests |
+      ---------------------
+             |
+   --------------------------------
+   |          Kafka Cluster        |
+   |-------------------------------|
+   | Broker 1 | Broker 2 | Broker 3 |
+   --------------------------------
+   | P0       | P1       | P2       |
+   --------------------------------
+             |
+   -------------------------------
+   |  Consumer Group: Ride Matching  |
+   |---------------------------------|
+   | Consumer 1 | Consumer 2 | Consumer 3 |
+   ---------------------------------
+             |
+      ----------------------
+      | Driver Allocation Service |
+      ----------------------
+             |
+      ----------------------
+      | Kafka Topic: driver-allocations |
+      ----------------------
+             |
+      ----------------------
+      | Driver Service |
+      ----------------------

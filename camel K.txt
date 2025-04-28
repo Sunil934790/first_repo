@@ -1,0 +1,82 @@
+camel K - installation set up
+
+through spring initializr --> project file
+manually create in eclipse > maven project > add dependencies(maven repo)
+
+usually --> create some classes, packages based on our requirement
+
+build hello world program in this 
+
+
+When using the seda component, the trigger file executes first, and then it asynchronously triggers the sample file.
+When using the direct component, the trigger file (trigger.java) still executes first, but the key difference is that it waits for sample.
+
+we can observe difference by using delay property
+
+
+            // Perform Division (handle division by zero)
+            .setProperty("quotient").exchange(e -> {
+                int num1 = e.getProperty("num1", Integer.class);
+                int num2 = e.getProperty("num2", Integer.class);
+                return (num2 != 0) ? (num1 / num2) : "Undefined (division by zero)";
+            })
+
+.log("Division: ${exchangeProperty.num1} / ${exchangeProperty.num2} = ${exchangeProperty.quotient}");
+
+create - post
+read   - get
+update - put
+delete - delete
+
+--dependencies=com.mysql:mysql-connector-j:8.3.0,org.apache.commons:commons-dbcp2:2.12.0
+
+ camel run .\rest.camel.yaml --dependency=com.mysql:mysql-connector-j:8.3.0,org.apache.commons:commons-dbcp2:2.12.0
+ 
+ performed crud operations using camel
+ also with rest component
+ rest --> sql --> set body --> log
+ 
+ 
+ sql component bean properties
+ it's like an external system so, we need to connect our db to camel
+ 
+ Details: 
+		name : db<as our wish>
+		type : org.apache.commons.dbcp2.BasicDataSource
+ Properties:
+		driverClassName : com.mysql.cj.jdbc.Driver
+		password		: Sunil9415@
+		url				: jdbc:mysql://localhost:3306/vkraft
+		username		: root
+
+ camel run .\rest.camel.yaml --dependency=com.mysql:mysql-connector-j:8.3.0,org.apache.commons:commons-dbcp2:2.12.0
+ 
+
+
+
+sample rest API
+
+http
+From api --> make count of title
+http link -- https://jsonplaceholder.typicode.com/posts 
+like hitting the api from that api 
+
+use velocity component for how many title are there and http component to hit	
+
+in camel k with jbang yaml
+
+
+
+${body['item_id']}
+
+
+loop iteration
+
+- beans:
+    - name: kafka
+      properties:
+        driverClassName: com.mysql.cj.jdbc.Driver
+        password: Sunil9415@
+        url: jdbc:mysql://localhost:3306/kafka
+        userName: root
+      type: org.apache.commons.dbcp2.BasicDataSource

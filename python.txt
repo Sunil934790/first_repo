@@ -1,0 +1,56 @@
+
+NumPy is a library that provides support for large, multi-dimensional arrays and matrices, along with a collection of high-level mathematical functions to operate on these arrays.
+
+	Works faster and more efficiently than native Python lists
+	Supports complex mathematical operations like linear algebra, Fourier transforms, and random number generation.
+
+
+Pandas is a library used for data manipulation and analysis. It provides two main data structures:
+
+	Series: 1D labeled array (like a column)
+	DataFrame: 2D labeled table (like an Excel sheet or SQL table)
+
+	Easily read/write data from Excel, CSV, databases, etc.
+	Handle missing data, filtering, grouping, sorting, merging, and reshaping
+	Perfect for working with structured data
+	
+Use NumPy when working with numeric arrays/matrices, especially for scientific or mathematical computations.
+Use Pandas when working with structured data like tables from CSV, Excel, SQL, etc.
+
+
+Matplotlib	:	Data visualization (charts, graphs)
+Seaborn		:	Statistical data visualization (built on Matplotlib)
+
+Class is a blueprint for objects
+object is an instance of a class
+example: with one blueprint we can built many houses
+	
+OOP (Object-Oriented Programming) is a way of organizing your code using classes and objects.
+
+
+Encapsulation	:	Hiding internal data and providing access via methods
+					combines data (attributes) and methods (functions) under one class, Protect internal data
+Inheritance		:	A class can inherit properties and methods from another class
+Polymorphism	:	One method can behave differently for different classes
+					Same method, different behavior
+Abstraction		:	Hiding complex details and showing only essentials
+
+
+CLASS			BankAccount, SavingsAccount, etc.
+OBJECT			Each user account is an object (act1, act2, etc....)
+ENCAPSULATION	Balance is private
+INHERITANCE		SavingsAccount inherits from BankAccount
+POLYMORPHISM	calculate_interest() is different for account types
+ABSTRACTION		Abstract base class for common rules
+
+
+Exception handling in python
+
+An exception is an error that occurs during program execution and interrupts the normal flow of the program
+	Catch errors before they crash your program
+	Show custom error messages
+	
+Syntax Errors (Compile-time errors)
+	These are mistakes in the code structure — like missing colons, brackets, or typos.
+	The program won't even run until you fix them
+Exceptions (Runtime errors)

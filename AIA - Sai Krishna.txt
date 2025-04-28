@@ -1,0 +1,55 @@
+				AIA 
+
+9555 - pbdirect
+9355 - vitality  --> vitality membership management portal
+	testing will done here
+5755 - vmmp batch server--> schedulers 
+		cust vmmp & cust vitality
+	insert operation/select operation
+
+vm(cloud servers)-->aks
+
+
+yaml file - integration server through yaml file
+	max all the properties will be there in yaml file
+		jdbc connections
+		global variables
+		keyvolts
+		keystore
+		truststore
+		um connections
+		extended settings
+		transactions
+		pod name
+		hosts
+		
+clone - master branch
+create branch in develop --> feature branch
+
+export package from designer & unzip
+go to folder where we want to place new changes
+git clone <link from master branch>
+git switch develop 
+git switch feature branch
+make changes
+git status
+add
+status
+message
+push
+check in bitbucket commits
+create pull request --> featuire - develop
+approve and merge
+
+global variables 
+k8's>>HELM>>dev>>yaml file 
+	add global variable key and value
+	
+adapter and wrapper creation for 5755 pod vmmp batch server 
+aia vmmp adapters --> package
+v2 --> con vmmp --> adapters , wrappers
+
+
+select Store procedure with signature
+	dynamic inputs --> from database 
+	rs1, rs2

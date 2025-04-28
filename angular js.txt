@@ -1,0 +1,145 @@
+ANGULAR JS
+
+Open source javascript framework
+angular is popular for Single Page Application for developing
+Completely written in type script
+It uses HTML syntax to express your application components clearly
+
+Features of Angular JS
+
+	Document Object Model (DOM)
+	Type script ---> it is installed as npm package --> npm install -g typescript
+	data binding
+	testing ---> uses jasmine framework for testing and karma software for task-runner
+	
+Angular is one of the popular javascript framework for building client side applications
+
+Angular is a developement platform for building a single page application for mobile and desktop
+
+so angular is a js framework which uses js language
+
+A framework is like a platform for developing software applications
+it has predefined classes and functions that can be re-used for several functionlaities, which provides API's for performing different operations when using an application
+
+ 
+TypeScript is the superset of javascript
+typescript is strongly typed where javascript is dynamically typed
+	
+Angular is a full-fledged MVC(model view controller) framework
+	MVC is an architectural pattern that separates the application layer into model, view, controller
+
+	components -->  Components are the building blocks of Angular applications
+	data binding/templates  --> Data binding connects your component’s data with the UI/ Keeps the data and UI in sync
+	services --> Services are used to share data or logic across components (like getting data from an API)
+	Routing --> routing allows to navigate between the pages/views
+	Forms --> template driven forms(simple) & reactive forms (complex logic and powerful)
+	HTTP Clients -->  Angular’s HttpClient lets you make HTTP calls (like GET, POST)
+	dependencies injection --> Angular uses DI to provide services to components
+	observable --> Angular uses RxJS(Reactive Extensions for js) Observable for asynchronous operations, like HTTP requests
+	testing --> angular uses unit testing using jasmine and karma
+	
+install node.js
+check version --> node --version
+node package manager
+npm install -g @angular/cli
+ng new taskmanager --no-standalone --routing --ssr=false
+ng new taskmanager(project name)  --no-standalone --routing --ssr=false
+
+open that taskmanager with vscode
+	run in terminal : ng serve
+		it will load the project
+		
+
+	in terminal 	
+		ng generate component task-list   --> for creating new component
+		ng generate service task 		  --> for creating new service -- services are nothing but injecting to components
+			if we have one service for common components, we can use that service in common components
+		in .ts file we can add changes/updates
+		so that it reflects in .html page while running
+			
+			
+COMPONENTS
+	In AngularJS, components are a special kind of directive that make it easier to build reusable UI elements
+	A component is a self-contained unit that includes:
+		View (HTML template)
+
+		Logic (JavaScript/Controller)
+
+		Bindings (for data sharing between components)
+		
+DATA BINDING
+	Data binding is the process of synchronizing data between the model (JavaScript variables) and the view (HTML UI).
+		When the model changes, the view updates automatically, and vice versa.
+		we have 2 types of binding
+		one-way binding --> data flows only from model to view (model(.ts file) --> view(.html file)) & also it doesn't effect the model when changes occur
+			.ts file(model)-->.html file(view)
+			.html file(view)-->.ts file(model)
+		two-way binding --> data flows in both ways (model(.ts file) <--> view(.html file)) & The model and view are in sync—when one changes, the other updates automatically.
+			.ts file(model)<-->.html file(view)
+			
+	A template in AngularJS is HTML mixed with AngularJS directives and expressions
+	
+SERVICES
+	A service in AngularJS is a reusable singleton object that provides data, business logic, or utility functions to different parts of an application. 
+	Services help in code reusability, modularity, and maintainability.
+	Used for data sharing between controllers and components.
+	
+	
+Main key terms 
+	Modules						Organize AngularJS apps
+	Directives					Extend HTML with AngularJS behaviors
+	Controllers					Manage application logic
+	Scope ($scope)				Binds data between controller and view
+	Services					Handle shared logic (API calls, data storage)
+	Dependency Injection		Injects required services automatically
+	Filters						Format data dynamically
+	Routing (ngRoute)			Enables Single Page Applications (SPA)
+	HTTP ($http)				Fetches data from APIs
+	Two-Way Data Binding		Synchronizes model and view
+	
+	
+	for every component we are having four files
+	here i have taken app component
+		app.component.ts
+		app.component.html
+		app.component.css
+		app.component.specs.ts
+		
+		
+	import { Component } from '@angular/core';
+	import { RouterOutlet } from '@angular/router';
+
+	@Component({
+	  selector: 'app-root',
+	  imports: [RouterOutlet],
+	  templateUrl: './app.component.html',
+	  styleUrl: './app.component.css'
+	})
+	export class AppComponent {
+	  title = 'Demo';
+	}
+
+this is .ts file contains all files with particular key names(selector, templateUrl, styleUrl)
+suppose when we want to write html code directly in .ts file 
+change templateUrl->template and start write code 
+
+flow for project work
+ angular project > index.html > angular.json > main.ts > AppModule(app.module.ts) > AppComponent(app.component.ts) > ViewComponent(app.component.ts)
+
+in one way data binding we have different types
+	string interpolation	-- .ts file(model)-->.html file(view)   [component-->view]
+		syntax : {{expression}} noting but its a variable-- treats as string
+		allows to bind data from typescript file to html file 
+	property binding		-- .ts file(model)-->.html file(view)	[component-->view]
+	//class binding			-- .ts file(model)-->.html file(view)
+	//style binding			-- .ts file(model)-->.html file(view)
+	event binding			-- .html file(view)-->.ts file(model)	[view-->component]
+	
+	
+string interpolation
+	city:string = "hyderabad"
+	path:string = "../path.imagename.jpg"
+	<img src={{path}} alt="">
+	
+Property binding
+	

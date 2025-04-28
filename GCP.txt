@@ -1,0 +1,24 @@
+POC - RAMESH
+
+
+nexus -->   wget  https://download.sonatype.com/nexus/oss/nexus-2.14.5-02-bundle.tar.gz 
+			tar xf nexus-2.14.5-02-bundle.tar.gz (for extraction)
+
+
+			[tsunilkumar9949@my-deveops ~]$ cd /home/tsunilkumar9949/nexus-2.14.5-02/bin
+			[tsunilkumar9949@my-deveops bin]$ ls -l
+			total 24
+			drwxr-xr-x. 15 tsunilkumar9949 tsunilkumar9949  4096 Jul 25  2017 jsw
+			-rwxr-xr-x.  1 tsunilkumar9949 tsunilkumar9949 14602 Jul 25  2017 nexus
+			-rwxr-xr-x.  1 tsunilkumar9949 tsunilkumar9949  2339 Jul 25  2017 nexus.bat
+			[tsunilkumar9949@my-deveops bin]$ chmod +x nexus
+			[tsunilkumar9949@my-deveops bin]$ ./nexus start
+			Starting Nexus OSS...
+			Started Nexus OSS.
+			curl ifconfig.me
+			
+configure a new firewall connection
+
+sonarQube
+34.124.254.247
+cd /home/tsunilkumar9949/sonarqube-6.7.7/bin

@@ -1,0 +1,39 @@
+	
+	diff b/w global variables and extended settings
+	
+	Global Variables are key-value pairs that are stored at the Integration Server level and can be accessed across services without needing to pass them explicitly
+	Used in Flow and Java services -- flow services and java services
+	doesn't require restart
+	
+	Extended Settings are system-level configurations that control Integration Server behavior
+	Requires a restart for changes to take effect.
+	Control system-wide settings
+
+
+	try	
+		start transaction
+			execute jdbc service
+		if successful
+			commit transaction
+	catch
+		if not
+			roll back transaction
+			
+			
+
+create one service
+try, catch, finally
+
+take one get service --> 10 records
+fail 5 records 
+
+try
+	logic
+	loop
+	try
+		logic
+	catch
+		get last error
+		additemToVector
+catch
+finally
