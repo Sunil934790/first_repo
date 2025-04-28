@@ -1,0 +1,144 @@
+API GATEWAY
+
+api gateway helps control, monitor, and protect APIs by handling incoming requests from clients and forwarding them to the correct backend services.
+
+Also we have developer portal for api gateway which can publish API's to that portal
+
+
+			How API Gateway Works? (Simple Flow)
+				A client (app, user, or system) sends a request to an API.
+				The API Gateway checks security policies (e.g., API key, OAuth).
+				If valid, the request is routed to the backend service.
+				The backend processes the request and sends a response.
+				The API Gateway forwards the response to the client.
+
+			Example Use Case
+				Imagine you have a mobile banking app that needs to access multiple APIs:
+
+				Login API (Authentication)
+
+				Account API (Fetch account details)
+
+				Transaction API (Send/receive money)
+
+			Instead of exposing these APIs directly, you use API Gateway to:
+			✅ Secure them with authentication.
+			✅ Limit requests to prevent abuse.
+			✅ Transform API responses to match mobile app needs.
+			
+Policies in API Gateway define rules and configurations that apply to APIs to enforce security, governance, and runtime behaviors.
+	which define rules like security, traffic control, and logging.
+Applications represent API consumers (clients) that register to use APIs.
+Packages are collections of APIs bundled together for easier management and consumption.
+
+
+http://env962315.apigw-aw-us.webmethods.io/gateway/security/getJsonWebToken
+
+https://f2b5-103-178-137-218.ngrok-free.app/rad/apiGateway.v3.restDetails:sampleRad/${sys:resource_path}
+
+
+http://SunilKumarThadapaneni:5555/rad/apiGateway.v3.restDetails:sampleRad/${sys:resource_path}
+
+
+
+
+created API from cloud to cloud
+For creating API from local to cloud
+
+
+-->create flowservice, rest resource, rest api descriptor(swagger file)
+-->create API in gateway with swagger file
+-->from ngrok check port is up and running... extract the http link from that
+-->from API, edit policies , add transport - https
+							 add identity & access
+							 routing - straight through routing&out bound auth transport
+						save api and activate
+						
+--> check in postman for service level output and ngrok http link for gateway output
+	so that working flow goes well
+
+simple alias
+endpoint alias
+HTTP transport security alias
+soap message security alias	
+web methods IS service alias
+XSLT(Extensible Stylesheet Language Transformations) transformation alias
+
+
+
+1. Simple Alias
+✅ Purpose:
+Used to store basic values like strings, URLs, or other configuration values you want to reuse.
+
+📌 Example:
+You have a common header value used across multiple APIs.
+
+Alias Name: CommonHeaderValue
+
+Value: application/json
+
+✅ You can use this alias in request transformation or routing policies to set the Content-Type header dynamically.
+
+🔸 2. Endpoint Alias
+✅ Purpose:
+Used to store backend service endpoints. Useful for routing requests without hardcoding backend URLs.
+
+📌 Example:
+Alias Name: OrderService_Dev
+
+URL: http://dev.internal.com/orders
+
+In the API routing policy, you can route the request to this alias. Later, in production, just update the alias to point to the production server without changing the API definition.
+
+🔸 3. HTTP Transport Security Alias
+✅ Purpose:
+Used to configure SSL/TLS certificates (keystore/truststore) for secure HTTPS communication when API Gateway connects to external services.
+
+📌 Example:
+Alias Name: SecureHTTP_Connection
+
+Truststore: Refers to the truststore with public certificates.
+
+Keystore: Optional (used if client certificate is needed).
+
+✅ Used in a routing policy to securely call an external HTTPS backend.
+
+🔸 4. SOAP Message Security Alias
+✅ Purpose:
+Used to configure WS-Security settings for SOAP APIs. Includes signatures, encryption, and username tokens.
+
+📌 Example:
+Alias Name: SOAP_Security_Alias
+
+Username Token: soap_user
+
+Digital Signature: Enabled using specific keystore
+
+✅ Used when invoking a secured SOAP backend from API Gateway with required SOAP security headers.
+
+🔸 5. webMethods IS Service Alias
+✅ Purpose:
+Used to configure the Integration Server (IS) connection, so API Gateway can call an IS flow service.
+
+📌 Example:
+Alias Name: IS_OrderService
+
+IS Host: http://localhost:5555
+
+Username: admin
+
+Password: manage
+
+✅ You can create a routing policy to call an IS service like invoke wm.order:getOrderDetails.
+
+🔸 6. XSLT Transformation Alias
+✅ Purpose:
+Stores XSLT scripts used to transform XML request or response messages.
+
+📌 Example:
+Alias Name: OrderToCustomerXSLT
+
+XSLT Script: A script to transform <Order> XML to <Customer> XML format.
+
+✅ You can apply this in a Request/Response Transformation Policy to match backend and frontend XML structures.
+
